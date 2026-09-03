@@ -1,0 +1,26 @@
+.img-placeholder {
+  width: 100%;
+  background: repeating-linear-gradient(
+    135deg,
+    #E2E0DC,
+    #E2E0DC 10px,
+    #D8D6D2 10px,
+    #D8D6D2 20px
+  );
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+}
+
+.img-placeholder span {
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--gray);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 6px 12px;
+  border-radius: 2px;
+}

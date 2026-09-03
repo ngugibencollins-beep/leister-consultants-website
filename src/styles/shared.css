@@ -1,0 +1,84 @@
+.section {
+  padding: 88px 0;
+}
+
+.section-kicker {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--rust);
+  margin-bottom: 12px;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: var(--rust);
+  color: var(--white);
+  padding: 14px 28px;
+  border-radius: 2px;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  transition: background 0.15s ease;
+}
+
+.btn-primary:hover {
+  background: var(--rust-dark);
+}
+
+.btn-secondary {
+  display: inline-block;
+  background: transparent;
+  color: var(--charcoal);
+  padding: 13px 26px;
+  border-radius: 2px;
+  font-size: 15px;
+  font-weight: 500;
+  border: 1px solid var(--gray-light);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--rust);
+  color: var(--rust);
+}
+
+.text-link {
+  color: var(--rust);
+  font-weight: 500;
+  font-size: 15px;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+  .section { padding: 56px 0; }
+}
+
+/* Scroll-reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+  height: 100%;
+}
+
+/* Only for Reveal wrappers holding a single card/image that must
+   stretch to fill a CSS grid row (see reveal-stretch usages). */
+.reveal.reveal-stretch > * {
+  height: 100%;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

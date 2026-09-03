@@ -1,0 +1,228 @@
+.page-contact {
+  padding-top: 88px;
+}
+
+/* ===== Intro ===== */
+
+.contact-intro {
+  background: var(--off-white);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.contact-intro h1 {
+  font-size: 36px;
+  margin: 14px 0 20px;
+}
+
+.contact-lead {
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--gray);
+  max-width: 56ch;
+}
+
+.contact-intro::before {
+  content: "";
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  right: -180px;
+  top: -210px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--rust) 16%, transparent) 0%, transparent 70%);
+  filter: blur(32px);
+  pointer-events: none;
+  animation: contactGlowDrift1 13s ease-in-out infinite alternate, contactGlowBreathe1 6s ease-in-out infinite;
+  z-index: -2;
+}
+
+.contact-intro::after {
+  content: "";
+  position: absolute;
+  left: 2%;
+  bottom: -180px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--rust) 9%, transparent) 0%, transparent 72%);
+  filter: blur(36px);
+  pointer-events: none;
+  animation: contactGlowDrift2 16s ease-in-out infinite alternate, contactGlowBreathe2 7.5s ease-in-out infinite;
+  z-index: -2;
+}
+
+@keyframes contactGlowDrift1 {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-30px, 20px, 0) scale(1.08); }
+}
+
+@keyframes contactGlowDrift2 {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(26px, -16px, 0) scale(1.05); }
+}
+
+@keyframes contactGlowBreathe1 {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+@keyframes contactGlowBreathe2 {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.88; }
+}
+
+@media (max-width: 560px) {
+  .contact-intro::before { width: 340px; height: 340px; right: -150px; top: -160px; }
+  .contact-intro::after { width: 240px; height: 240px; left: -100px; bottom: -130px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-intro::before,
+  .contact-intro::after {
+    animation: none;
+  }
+}
+
+/* ===== Layout ===== */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 72px;
+  align-items: start;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.contact-form-wrap {
+  min-width: 0;
+}
+
+.contact-detail-block h3 {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+}
+
+.contact-detail-block > p {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--gray);
+  max-width: 42ch;
+}
+
+.contact-detail-role {
+  color: var(--rust);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.contact-detail-line {
+  display: block;
+  font-size: 15px;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+}
+
+.terms-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.terms-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-left: 16px;
+  border-left: 2px solid var(--border);
+}
+
+.terms-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+.terms-text {
+  font-size: 13.5px;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+/* ===== Form ===== */
+
+.contact-form {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form h3 {
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--charcoal);
+}
+
+.contact-form input,
+.contact-form textarea {
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 12px 14px;
+  border: 1px solid var(--gray-light);
+  border-radius: 2px;
+  background: var(--white);
+  color: var(--charcoal);
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--rust);
+}
+
+.contact-form button {
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+.form-note {
+  font-size: 13.5px;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-contact { padding-top: 64px; }
+  .contact-intro h1 { font-size: 28px; }
+  .contact-form { padding: 28px 20px; }
+}

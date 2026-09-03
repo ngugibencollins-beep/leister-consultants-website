@@ -1,0 +1,355 @@
+.page-services {
+  padding-top: 88px;
+}
+
+.services-intro {
+  background: var(--off-white);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.services-intro-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.services-intro h1 {
+  font-size: 36px;
+  max-width: 20ch;
+  margin: 14px 0 22px;
+}
+
+.services-lead {
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--gray);
+  max-width: 62ch;
+}
+
+.services-intro::before {
+  content: "";
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  right: -160px;
+  top: -190px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--rust) 10%, transparent) 0%, transparent 68%);
+  filter: blur(10px);
+  pointer-events: none;
+  animation: servicesOrb 12s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+.services-intro::after {
+  content: "";
+  position: absolute;
+  left: 4%;
+  bottom: -160px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--rust) 12%, transparent);
+  pointer-events: none;
+  animation: servicesRing 16s linear infinite;
+  z-index: -1;
+}
+
+@keyframes servicesOrb {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-28px, 18px, 0) scale(1.06); }
+}
+
+@keyframes servicesRing {
+  from { transform: rotate(0deg) translateX(0); }
+  to { transform: rotate(360deg) translateX(14px); }
+}
+
+.services-intro-grid .img-placeholder {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  transition: transform 350ms ease, box-shadow 350ms ease;
+}
+
+.services-intro-grid .img-placeholder:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Financial Modelling & Project Finance ===== */
+
+.modelling-section h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.modelling-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.modelling-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.modelling-row {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 22px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  border-top: 1px solid var(--border);
+  transition: transform 300ms ease, background 300ms ease;
+}
+
+.modelling-list .modelling-row:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.modelling-index {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gray);
+  padding-top: 3px;
+  transition: color 260ms ease;
+}
+
+.modelling-row h3 {
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  transition: color 260ms ease;
+}
+
+.modelling-row p {
+  color: var(--gray);
+  font-size: 15px;
+  max-width: 52ch;
+  line-height: 1.6;
+}
+
+.modelling-row:hover,
+.modelling-row-active {
+  transform: translateX(6px);
+  background: color-mix(in srgb, var(--charcoal) 4%, var(--off-white));
+}
+
+.modelling-row:hover .modelling-index,
+.modelling-row-active .modelling-index,
+.modelling-row:hover h3,
+.modelling-row-active h3 {
+  color: var(--rust);
+}
+
+.modelling-visual-sticky {
+  position: sticky;
+  top: 100px;
+}
+
+.modelling-image-fade {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 900px) {
+  .modelling-grid { grid-template-columns: 1fr; }
+  .modelling-visual-sticky { position: static; }
+}
+
+/* ===== Also on offer — flip cards (fully self-contained, no ImagePlaceholder) ===== */
+
+.other-services {
+  background: var(--off-white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.other-services-header {
+  text-align: center;
+  max-width: 48ch;
+  margin: 0 auto 48px;
+}
+
+.other-services-header h2 {
+  font-size: 28px;
+  margin: 10px 0 0;
+}
+
+.other-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.flip-card {
+  height: 340px;
+  perspective: 1600px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 650ms cubic-bezier(.22, 1, .36, 1);
+  transform-style: preserve-3d;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.12);
+}
+
+.flip-card-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.flip-card-front {
+  display: flex;
+  align-items: flex-end;
+}
+
+.flip-card-front-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--rust) 18%, var(--off-white)) 0%, var(--off-white) 60%),
+    repeating-linear-gradient(45deg, color-mix(in srgb, var(--charcoal) 4%, transparent) 0px, color-mix(in srgb, var(--charcoal) 4%, transparent) 1px, transparent 1px, transparent 14px);
+}
+
+.flip-card-front-content {
+  position: relative;
+  width: 100%;
+  padding: 24px 26px;
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--charcoal) 82%, transparent) 0%,
+    color-mix(in srgb, var(--charcoal) 25%, transparent) 65%,
+    transparent 100%
+  );
+}
+
+.flip-card-front-content h3 {
+  color: var(--white);
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.flip-card-hint {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+}
+
+.flip-card-back {
+  background: var(--white);
+  transform: rotateY(180deg);
+  padding: 28px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.flip-card-back h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 16px;
+  color: var(--rust-dark, var(--rust));
+}
+
+.flip-card-back ul {
+  margin: 0 0 auto;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+
+.flip-card-back li {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--charcoal);
+  padding-left: 16px;
+  position: relative;
+}
+
+.flip-card-back li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 5px;
+  height: 5px;
+  background: var(--rust);
+}
+
+.other-service-link {
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--rust);
+  text-decoration: none;
+  width: fit-content;
+}
+
+@media (max-width: 860px) {
+  .other-services-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+  .services-intro-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .page-services { padding-top: 64px; }
+  .services-intro h1 { font-size: 28px; }
+  .flip-card { height: 380px; }
+}
+
+@media (hover: none) {
+  .flip-card:active .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-intro::before,
+  .services-intro::after,
+  .flip-card-inner {
+    transition: none;
+    animation: none;
+  }
+}
