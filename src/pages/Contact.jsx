@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import ImagePlaceholder from '../components/ImagePlaceholder';
 import Reveal from '../components/Reveal';
+import { SITE_IMAGES } from '../content/siteImages';
 import './Contact.css';
 
 const TERMS = [
@@ -91,7 +92,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <ImagePlaceholder label="Leister Consultants office" ratio="16 / 10" />
+            <ImagePlaceholder label="Leister Consultants project workspace" image={SITE_IMAGES.financialDesk} ratio="16 / 10" />
           </Reveal>
 
           <Reveal delay={120} className="contact-form-wrap reveal-stretch">

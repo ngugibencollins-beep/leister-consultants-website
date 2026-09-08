@@ -7,9 +7,7 @@
   isolation: isolate;
 }
 
-/* Layered animated rings — blends into the dark footer */
 .site-footer::before {
-  /* soft glow */
   content: "";
   position: absolute;
   width: 480px;
@@ -30,7 +28,6 @@
 }
 
 .site-footer::after {
-  /* outer ring */
   content: "";
   position: absolute;
   width: 420px;
@@ -135,6 +132,22 @@
   padding: 20px 32px;
   font-size: 13px;
   color: #8C8A87;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-credit {
+  color: #8C8A87;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footer-credit:hover {
+  color: var(--rust);
 }
 
 @keyframes footerGlow {
@@ -215,5 +228,10 @@
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+
+  .footer-bottom {
+    justify-content: center;
+    text-align: center;
   }
 }

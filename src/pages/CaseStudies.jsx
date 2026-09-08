@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import ImagePlaceholder from '../components/ImagePlaceholder';
 import Reveal from '../components/Reveal';
 import AnimatedStat from '../components/AnimatedStat';
+import { SITE_IMAGES } from '../content/siteImages';
 import './CaseStudies.css';
 
 export default function CaseStudies() {
@@ -26,7 +27,7 @@ export default function CaseStudies() {
       <section className="section case-study case-study-tiac">
         <div className="container case-grid">
           <Reveal className="case-media">
-            <ImagePlaceholder label="TIAC project site photo" ratio="1 / 1" />
+            <ImagePlaceholder label="TIAC project site" image={SITE_IMAGES.solarProject} ratio="1 / 1" />
             <div className="case-stat-row">
               <div className="case-stat">
                 <AnimatedStat value="5" className="stat-number" />
@@ -80,7 +81,7 @@ export default function CaseStudies() {
           </Reveal>
 
           <Reveal delay={120}>
-            <ImagePlaceholder label="Grant Thornton / UNDP project photo" ratio="1 / 1" />
+            <ImagePlaceholder label="Grant Thornton and UNDP project work" image={SITE_IMAGES.advisoryMeeting} ratio="1 / 1" />
           </Reveal>
         </div>
       </section>

@@ -1,3 +1,13 @@
+.page-about {
+  padding-top: 88px;
+}
+
+@media (max-width: 560px) {
+  .page-about {
+    padding-top: 64px;
+  }
+}
+
 /* ===== Layout ===== */
 
 .about-intro-grid {
@@ -129,7 +139,7 @@
     grid-template-columns: 1fr;
   }
 
-  .about-intro-grid > .img-placeholder {
+  .about-intro-grid > .about-portrait {
     order: -1;
   }
 
@@ -192,25 +202,47 @@
 
 /* ===== Image hover polish ===== */
 
-.about-intro-grid .img-placeholder,
-.partner-grid .img-placeholder {
+.about-portrait {
   position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  margin: 0;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-  transition: transform 350ms cubic-bezier(.22, 1, .36, 1), filter 350ms ease, box-shadow 350ms ease;
+  background: #e8e4df;
+  transition: transform 350ms cubic-bezier(.22, 1, .36, 1), box-shadow 350ms ease;
 }
 
-.about-intro-grid .img-placeholder:hover,
-.partner-grid .img-placeholder:hover {
+.about-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  transition: transform 600ms cubic-bezier(.22, 1, .36, 1), filter 350ms ease;
+}
+
+.about-portrait-team img {
+  object-position: center 18%;
+}
+
+.about-portrait-robert img {
+  object-position: center 15%;
+}
+
+.about-portrait:hover {
   transform: translateY(-5px);
-  filter: saturate(1.03);
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.08);
 }
 
-.about-intro-grid .img-placeholder::after,
-.partner-grid .img-placeholder::after {
+.about-portrait:hover img {
+  transform: scale(1.035);
+  filter: saturate(1.04) contrast(1.02);
+}
+
+.about-portrait::after {
   content: "";
   position: absolute;
   inset: 10px;
@@ -221,9 +253,35 @@
   transition: opacity 300ms ease;
 }
 
-.about-intro-grid .img-placeholder:hover::after,
-.partner-grid .img-placeholder:hover::after {
+.about-portrait:hover::after {
   opacity: 1;
+}
+
+.about-portrait figcaption {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(22, 20, 18, 0.72);
+  color: var(--white);
+  backdrop-filter: blur(8px);
+}
+
+.about-portrait figcaption strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.about-portrait figcaption span {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* ===== "What we specialize in" cards — slate hover ===== */
@@ -296,8 +354,7 @@
 @media (prefers-reduced-motion: reduce) {
   .about-intro::before,
   .about-intro::after,
-  .about-intro-grid .img-placeholder,
-  .partner-grid .img-placeholder,
+  .about-portrait,
   .focus-item,
   .focus-item-link,
   .page-about .text-link,

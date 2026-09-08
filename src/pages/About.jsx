@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import ImagePlaceholder from '../components/ImagePlaceholder';
 import Reveal from '../components/Reveal';
 import './About.css';
 
@@ -34,7 +33,15 @@ export default function About() {
             </div>
           </Reveal>
           <Reveal delay={120}>
-            <ImagePlaceholder label="Leister Consultants team / office photo" ratio="4 / 5" />
+            <figure className="about-portrait about-portrait-team">
+              <img
+                src="/images/leadership-consultant.jpeg"
+                alt="Leister Consultants leadership team member"
+                width="1000"
+                height="1500"
+                fetchPriority="high"
+              />
+            </figure>
           </Reveal>
         </div>
       </section>
@@ -86,7 +93,19 @@ export default function About() {
       <section className="section partner-section">
         <div className="container partner-grid">
           <Reveal>
-            <ImagePlaceholder label="Robert Maganda, Lead Consultant &mdash; portrait" ratio="4 / 5" />
+            <figure className="about-portrait about-portrait-robert">
+              <img
+                src="/images/robert-maganda.jpeg"
+                alt="Robert Maganda, Lead Consultant"
+                width="1000"
+                height="1500"
+                loading="lazy"
+              />
+              <figcaption>
+                <strong>Robert Maganda</strong>
+                <span>Lead Consultant</span>
+              </figcaption>
+            </figure>
           </Reveal>
           <Reveal delay={120}>
             <div>

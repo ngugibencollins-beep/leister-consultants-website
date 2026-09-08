@@ -2,33 +2,34 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import ImagePlaceholder from '../components/ImagePlaceholder';
 import Reveal from '../components/Reveal';
+import { SITE_IMAGES } from '../content/siteImages';
 import './Services.css';
 
 const MODELLING_ITEMS = [
   {
     title: 'Development of Corporate Financial Models',
     text: 'Integrated SPV and group models for complex projects, built to hold up under investor and lender scrutiny.',
-    image: 'Corporate financial modelling',
+    image: SITE_IMAGES.financialLaptop,
   },
   {
     title: 'Tariff Modelling',
     text: 'Energy pricing models aligned with regulatory guidelines and investor requirements.',
-    image: 'Tariff modelling for energy projects',
+    image: SITE_IMAGES.solarProject,
   },
   {
     title: 'Feasibility Consistency Reviews',
     text: 'Alignment of technical feasibility studies with financial outputs, so assumptions hold together end to end.',
-    image: 'Feasibility consistency review',
+    image: SITE_IMAGES.financialDesk,
   },
   {
     title: 'Scenario & Sensitivity Analysis',
     text: 'Stress-tested revenue streams, feedstock assumptions, and tariff structures against real-world variability.',
-    image: 'Scenario and sensitivity analysis',
+    image: SITE_IMAGES.financialLaptop,
   },
   {
     title: 'Investor-Ready Outputs',
     text: 'IRR, NPV, DSCR, payback, and valuation metrics presented the way funders expect to see them.',
-    image: 'Investor-ready financial outputs',
+    image: SITE_IMAGES.advisoryMeeting,
   },
 ];
 
@@ -95,7 +96,7 @@ export default function Services() {
             </div>
           </Reveal>
           <Reveal delay={120}>
-            <ImagePlaceholder label="Financial modelling workspace" ratio="4 / 3" />
+            <ImagePlaceholder label="Financial modelling workspace" image={SITE_IMAGES.financialLaptop} ratio="4 / 3" />
           </Reveal>
         </div>
       </section>
@@ -125,7 +126,11 @@ export default function Services() {
             <Reveal delay={120} className="modelling-visual">
               <div className="modelling-visual-sticky">
                 <div key={activeModel} className="modelling-image-fade">
-                  <ImagePlaceholder label={MODELLING_ITEMS[activeModel].image} ratio="4 / 3" />
+                  <ImagePlaceholder
+                    label={MODELLING_ITEMS[activeModel].title}
+                    image={MODELLING_ITEMS[activeModel].image}
+                    ratio="4 / 3"
+                  />
                 </div>
               </div>
             </Reveal>

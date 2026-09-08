@@ -3,33 +3,34 @@ import { Link } from 'react-router-dom';
 import ImagePlaceholder from '../components/ImagePlaceholder';
 import Reveal from '../components/Reveal';
 import AnimatedStat from '../components/AnimatedStat';
+import { SITE_IMAGES } from '../content/siteImages';
 import './Home.css';
 
 const SPECIALIZATIONS = [
   {
     title: 'Financial Modelling & Feasibility Validation',
     text: 'Integrated SPV and group models tested against real technical and market assumptions.',
-    image: 'Financial modelling session',
+    image: SITE_IMAGES.financialLaptop,
   },
   {
     title: 'Project Finance Structuring & Compliance',
     text: 'Debt and equity structuring aligned with lender and investor requirements.',
-    image: 'Project finance structuring meeting',
+    image: SITE_IMAGES.advisoryMeeting,
   },
   {
     title: 'Due Diligence',
     text: 'Financial, operational, and regulatory review for transactions and funding rounds.',
-    image: 'Due diligence document review',
+    image: SITE_IMAGES.financialDesk,
   },
   {
     title: 'Corporate Governance Advisory',
     text: 'Board structures, charters, and governance frameworks built for accountability.',
-    image: 'Board & governance advisory meeting',
+    image: SITE_IMAGES.advisoryMeeting,
   },
   {
     title: 'PPA Structuring & Negotiations',
     text: 'Power purchase agreement terms negotiated with regulators and offtakers.',
-    image: 'PPA negotiation, Tana River County',
+    image: SITE_IMAGES.solarProject,
   },
 ];
 
@@ -65,9 +66,9 @@ const OUTCOMES = [
 ];
 
 const GALLERY = [
-  { label: 'Financial modelling session' },
-  { label: 'Project site visit, Tana River County' },
-  { label: 'Board & governance advisory meeting' },
+  { label: 'Financial modelling session', image: SITE_IMAGES.financialLaptop },
+  { label: 'Project site visit, Tana River County', image: SITE_IMAGES.solarProject },
+  { label: 'Board & governance advisory meeting', image: SITE_IMAGES.advisoryMeeting },
 ];
 
 export default function Home() {
@@ -145,7 +146,11 @@ export default function Home() {
             <Reveal delay={120} className="spec-visual">
               <div className="spec-visual-sticky">
                 <div key={activeSpec} className="spec-image-fade">
-                  <ImagePlaceholder label={SPECIALIZATIONS[activeSpec].image} ratio="4 / 3" />
+                  <ImagePlaceholder
+                    label={SPECIALIZATIONS[activeSpec].title}
+                    image={SPECIALIZATIONS[activeSpec].image}
+                    ratio="4 / 3"
+                  />
                 </div>
                 <div className="spec-stat-card">
                   <AnimatedStat value={String(SPECIALIZATIONS.length)} className="stat-number" />
@@ -163,7 +168,7 @@ export default function Home() {
           <div className="gallery-grid">
             {GALLERY.map((item, i) => (
               <Reveal delay={i * 90} key={item.label} className="reveal-stretch">
-                <ImagePlaceholder label={item.label} ratio="4 / 3" />
+                <ImagePlaceholder label={item.label} image={item.image} ratio="4 / 3" />
               </Reveal>
             ))}
           </div>
@@ -188,7 +193,7 @@ export default function Home() {
             <Link to="/case-studies" className="text-link">Read the full case study <span className="case-study-arrow" aria-hidden="true">→</span></Link>
           </Reveal>
           <Reveal delay={120} className="track-record-image-wrapper">
-            <ImagePlaceholder label="TIAC project photo" ratio="1 / 1" />
+            <ImagePlaceholder label="TIAC project site" image={SITE_IMAGES.solarProject} ratio="1 / 1" />
           </Reveal>
         </div>
       </section>
