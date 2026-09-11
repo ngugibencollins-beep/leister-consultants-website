@@ -19,7 +19,7 @@
 
 .services-intro h1 {
   font-size: 36px;
-  max-width: 20ch;
+  max-width: 30ch;
   margin: 14px 0 22px;
 }
 
@@ -169,8 +169,7 @@
   .modelling-grid { grid-template-columns: 1fr; }
   .modelling-visual-sticky { position: static; }
 }
-
-/* ===== Also on offer — flip cards (fully self-contained, no ImagePlaceholder) ===== */
+/* ===== Also on offer — flip cards ===== */
 
 .other-services {
   background: var(--off-white);
@@ -212,8 +211,9 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
-.flip-card:hover .flip-card-inner,
-.flip-card:focus-within .flip-card-inner {
+/* Flip is controlled ONLY by this class (click state) — no :hover trigger,
+   so the Back button always works regardless of cursor position. */
+.flip-card-flipped .flip-card-inner {
   transform: rotateY(180deg);
   box-shadow: 0 22px 50px rgba(0, 0, 0, 0.12);
 }
@@ -237,15 +237,12 @@
   align-items: flex-end;
 }
 
-.flip-card-front-pattern {
+.flip-card-front-photo {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
-  background:
-    linear-gradient(135deg, color-mix(in srgb, var(--rust) 18%, var(--off-white)) 0%, var(--off-white) 60%),
-    repeating-linear-gradient(45deg, color-mix(in srgb, var(--charcoal) 4%, transparent) 0px, color-mix(in srgb, var(--charcoal) 4%, transparent) 1px, transparent 1px, transparent 14px);
+  object-fit: cover;
 }
 
 .flip-card-front-content {
@@ -264,13 +261,56 @@
   color: var(--white);
   font-size: 19px;
   font-weight: 600;
-  margin: 0 0 6px;
+  margin: 0 0 10px;
 }
 
-.flip-card-hint {
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 12.5px;
-  letter-spacing: 0.02em;
+/* "Learn more" styled like the site's text-link (see Home track-record) */
+
+.flip-card-learn-more {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  padding: 4px 0;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14.5px;
+  cursor: pointer;
+  width: fit-content;
+  transition: gap 260ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.flip-card-learn-more::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1px;
+  height: 1px;
+  background: var(--rust);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms ease;
+}
+
+.flip-card-learn-more:hover {
+  gap: 13px;
+}
+
+.flip-card-learn-more:hover::before {
+  transform: scaleX(1);
+}
+
+.flip-card-arrow {
+  display: inline-block;
+  transition: transform 260ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.flip-card-learn-more:hover .flip-card-arrow {
+  transform: translateX(4px);
 }
 
 .flip-card-back {
@@ -316,8 +356,48 @@
   background: var(--rust);
 }
 
-.other-service-link {
+.flip-card-back-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.flip-card-back-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: none;
+  border: none;
+  padding: 4px 0;
+  color: var(--charcoal);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: gap 260ms cubic-bezier(.22, 1, .36, 1), color 220ms ease;
+}
+
+.flip-card-back-btn:hover {
+  color: var(--rust);
+  gap: 10px;
+}
+
+.flip-card-arrow-back {
+  display: inline-block;
+  transition: transform 260ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.flip-card-back-btn:hover .flip-card-arrow-back {
+  transform: translateX(-4px);
+}
+
+.other-service-link {
+  position: relative;
   font-size: 14px;
   font-weight: 600;
   color: var(--rust);
@@ -339,17 +419,14 @@
   .flip-card { height: 380px; }
 }
 
-@media (hover: none) {
-  .flip-card:active .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .services-intro::before,
   .services-intro::after,
-  .flip-card-inner {
+  .flip-card-inner,
+  .flip-card-learn-more,
+  .flip-card-arrow,
+  .flip-card-back-btn,
+  .flip-card-arrow-back {
     transition: none;
-    animation: none;
   }
 }

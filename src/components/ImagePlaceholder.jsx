@@ -14,14 +14,16 @@ export default function ImagePlaceholder({
       {image ? (
         <>
           <img src={image.src} alt={image.alt || label} loading="lazy" />
-          <a
-            className="image-credit"
-            href={image.creditHref}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {image.credit}
-          </a>
+          {image.credit && (
+            <a
+              className="image-credit"
+              href={image.creditHref}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {image.credit}
+            </a>
+          )}
         </>
       ) : (
         <span>{label}</span>

@@ -26,4 +26,28 @@ export const SITE_IMAGES = {
     credit: 'Vlad Burac / Unsplash',
     creditHref: 'https://unsplash.com/photos/solar-farm-in-a-rural-landscape-under-a-clear-sky-SuHKJl7nPho',
   },
+  governanceBoardroom: {
+    src: unsplash('photo-1431540015161-0bf868a2d407'),
+    alt: 'Oval wooden conference table and chairs in a boardroom',
+    credit: 'Benjamin Child / Unsplash',
+    creditHref: 'https://unsplash.com/photos/oval-brown-wooden-conference-table-and-chairs-inside-conference-room-GWe0dlVD9e0',
+  },
+  complianceTiles: {
+    src: unsplash('photo-1704969724221-8b7361b61f75'),
+    alt: 'The word compliance spelled out with wooden letter tiles',
+    credit: 'Markus Winkler / Unsplash',
+    creditHref: 'https://unsplash.com/photos/compliance-spelled-with-wooden-letter-tiles-UGfFIrvCXVY',
+  },
+  financialCoins: {
+    src: '/images/financial-management-kes.jpg',
+    alt: 'Kenyan shilling banknotes, a calculator, and financial charts on a desk',
+    credit: null,
+    creditHref: null,
+  },
+  secretarialTable: {
+    src: '/images/company-secretarial-safe.jpg',
+    alt: 'A SAFE agreement document with a pen resting on top',
+    credit: null,
+    creditHref: null,
+  },
 };

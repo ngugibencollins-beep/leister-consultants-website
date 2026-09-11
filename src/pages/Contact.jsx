@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import ImagePlaceholder from '../components/ImagePlaceholder';
 import Reveal from '../components/Reveal';
 import { SITE_IMAGES } from '../content/siteImages';
@@ -24,23 +23,6 @@ const TERMS = [
 ];
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', company: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const subject = encodeURIComponent(`Consultation request from ${form.name || 'website'}`);
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nCompany: ${form.company}\nEmail: ${form.email}\n\n${form.message}`
-    );
-    window.location.href = `mailto:robert@leisterconsultants.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-  };
-
   return (
     <div className="page-contact">
       <section className="section contact-intro">
@@ -50,8 +32,8 @@ export default function Contact() {
               <p className="section-kicker">Contact</p>
               <h1>Let&apos;s talk about your project.</h1>
               <p className="contact-lead">
-                Most engagements start with a short scoping conversation. Reach
-                out directly, or send a few details through the form below.
+                Most engagements start with a short scoping conversation.
+                Reach out directly using the details below.
               </p>
             </div>
           </Reveal>
@@ -91,70 +73,14 @@ export default function Contact() {
                 ))}
               </div>
             </div>
-
-            <ImagePlaceholder label="Leister Consultants project workspace" image={SITE_IMAGES.financialDesk} ratio="16 / 10" />
           </Reveal>
 
-          <Reveal delay={120} className="contact-form-wrap reveal-stretch">
-            <form className="contact-form" onSubmit={handleSubmit}>
-            <h3>Send a message</h3>
-
-            <label>
-              Name
-              <input
-                type="text"
-                name="name"
-                required
-                value={form.name}
-                onChange={handleChange}
-                placeholder="Your full name"
-              />
-            </label>
-
-            <label>
-              Email
-              <input
-                type="email"
-                name="email"
-                required
-                value={form.email}
-                onChange={handleChange}
-                placeholder="you@company.com"
-              />
-            </label>
-
-            <label>
-              Company
-              <input
-                type="text"
-                name="company"
-                value={form.company}
-                onChange={handleChange}
-                placeholder="Company or project name"
-              />
-            </label>
-
-            <label>
-              Message
-              <textarea
-                name="message"
-                rows="5"
-                required
-                value={form.message}
-                onChange={handleChange}
-                placeholder="Tell us a little about your project"
-              ></textarea>
-            </label>
-
-            <button type="submit" className="btn-primary">Send message</button>
-
-            {submitted && (
-              <p className="form-note">
-                Opening your email client to send this to Robert &mdash; if
-                nothing opens, email robert@leisterconsultants.com directly.
-              </p>
-            )}
-          </form>
+          <Reveal delay={120} className="contact-image-wrap reveal-stretch">
+            <ImagePlaceholder
+              label="Leister Consultants project workspace"
+              image={SITE_IMAGES.financialDesk}
+              ratio="4 / 5"
+            />
           </Reveal>
         </div>
       </section>

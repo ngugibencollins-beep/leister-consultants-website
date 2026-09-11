@@ -17,14 +17,14 @@ export default function About() {
             <div>
               <p className="section-kicker">About Leister Consultants</p>
               <h1>An independent voice on complex financial decisions.</h1>
-              <p className="about-lead">
+              <p className="about-lead1">
                 Leister Consultants is an independent management consultancy
                 with expertise in financial management, governance, and
                 corporate finance. We work alongside project sponsors,
                 investors, and boards to turn feasibility into financing, and
                 financing into implementation.
               </p>
-              <p className="about-lead">
+              <p className="about-lead2">
                 Our work sits at the point where technical feasibility meets
                 financial reality &mdash; building the models, structures, and
                 governance frameworks that let complex projects reach

@@ -36,6 +36,7 @@ const MODELLING_ITEMS = [
 const OTHER_SERVICES = [
   {
     category: 'Corporate Governance',
+    image: SITE_IMAGES.governanceBoardroom,
     items: [
       'Board trainings',
       'Preparation of board annual work plans',
@@ -45,6 +46,7 @@ const OTHER_SERVICES = [
   },
   {
     category: 'Compliance',
+    image: SITE_IMAGES.complianceTiles,
     items: [
       'Registration of business names, partnerships, and companies',
       'Attending board meetings and taking minutes',
@@ -56,6 +58,7 @@ const OTHER_SERVICES = [
   },
   {
     category: 'Financial Management',
+    image: SITE_IMAGES.financialCoins,
     items: [
       'Accounting & controls',
       'Advice on financial system setup',
@@ -65,6 +68,7 @@ const OTHER_SERVICES = [
   },
   {
     category: 'Company Secretarial & Corporate Governance',
+    image: SITE_IMAGES.secretarialTable,
     items: [
       'Board set-up',
       'Constituting boards and sourcing competent board members',
@@ -75,8 +79,25 @@ const OTHER_SERVICES = [
   },
 ];
 
+// True only on devices with a real mouse (laptops/desktops) — never on touch.
+const supportsRealHover = () =>
+  typeof window !== 'undefined' &&
+  window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
 export default function Services() {
   const [activeModel, setActiveModel] = useState(0);
+  const [flippedIndex, setFlippedIndex] = useState(null);
+
+  const flipTo = (i) => setFlippedIndex(i);
+  const flipBack = () => setFlippedIndex(null);
+
+  const handleCardMouseEnter = (i) => {
+    if (supportsRealHover()) flipTo(i);
+  };
+
+  const handleCardMouseLeave = (i) => {
+    if (supportsRealHover() && flippedIndex === i) flipBack();
+  };
 
   return (
     <div className="page-services">
@@ -149,13 +170,29 @@ export default function Services() {
           <div className="other-services-grid">
             {OTHER_SERVICES.map((group, i) => (
               <Reveal delay={(i % 2) * 90} key={group.category}>
-                <div className="flip-card">
+                <div
+                  className={`flip-card ${flippedIndex === i ? 'flip-card-flipped' : ''}`}
+                  onMouseEnter={() => handleCardMouseEnter(i)}
+                  onMouseLeave={() => handleCardMouseLeave(i)}
+                >
                   <div className="flip-card-inner">
                     <div className="flip-card-face flip-card-front">
-                      <div className="flip-card-front-pattern" aria-hidden="true"></div>
+                      <img
+                        className="flip-card-front-photo"
+                        src={group.image.src}
+                        alt={group.image.alt}
+                        loading="lazy"
+                      />
+                      <div className="flip-card-front-overlay" aria-hidden="true"></div>
                       <div className="flip-card-front-content">
                         <h3>{group.category}</h3>
-                        <span className="flip-card-hint">Hover to see what&apos;s included</span>
+                        <button
+                          type="button"
+                          className="flip-card-learn-more"
+                          onClick={() => flipTo(i)}
+                        >
+                          Learn more <span className="flip-card-arrow" aria-hidden="true">&rarr;</span>
+                        </button>
                       </div>
                     </div>
                     <div className="flip-card-face flip-card-back">
@@ -165,7 +202,16 @@ export default function Services() {
                           <li key={item}>{item}</li>
                         ))}
                       </ul>
-                      <Link to="/contact" className="other-service-link">Learn more &rarr;</Link>
+                      <div className="flip-card-back-actions">
+                        <button
+                          type="button"
+                          className="flip-card-back-btn"
+                          onClick={flipBack}
+                        >
+                          <span className="flip-card-arrow-back" aria-hidden="true">&larr;</span> Back
+                        </button>
+                        <Link to="/contact" className="other-service-link">Talk to us &rarr;</Link>
+                      </div>
                     </div>
                   </div>
                 </div>
