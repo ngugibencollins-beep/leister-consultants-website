@@ -29,15 +29,16 @@
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   color: var(--rust);
-  margin-bottom: 100px;
+  margin-bottom: 10px;
 }
 
 .hero-text h1 {
   font-size: 44px;
-  max-width: 26ch;
-  margin-bottom: 80px;
+  max-width: 20ch;
+  line-height: 1.15;
+  margin-bottom: 16px;
 }
 
 .hero-lead {
@@ -45,7 +46,7 @@
   line-height: 1.65;
   color: var(--gray);
   max-width: 46ch;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .hero-actions {
@@ -296,7 +297,7 @@
 .track-record-text h2 {
   font-size: 28px;
   margin: 12px 0 20px;
-  max-width: 24ch;
+  max-width: 30ch;
 }
 
 .track-record-lead {
@@ -377,7 +378,7 @@
 }
 
 @media (max-width: 900px) {
-    .hero-inner {
+  .hero-inner {
     grid-template-columns: 1fr;
     padding-top: 140px;
   }

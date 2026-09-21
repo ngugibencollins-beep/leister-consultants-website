@@ -12,18 +12,22 @@
   overflow: hidden;
 }
 
+.contact-intro .container {
+  text-align: center;
+}
+
 .contact-intro h1 {
   font-size: 36px;
-  margin: 14px 0 20px;
+  margin: 14px auto 20px;
 }
 
 .contact-lead {
   font-size: 16.5px;
   line-height: 1.7;
   color: var(--gray);
-  max-width: 56ch;
+  max-width: 58ch;
+  margin: 0 auto;
 }
-
 .contact-intro::before {
   content: "";
   position: absolute;
@@ -183,6 +187,10 @@
 
   .contact-image-wrap {
     order: -1;
+  }
+
+  .contact-intro h1 {
+    margin-left: 0;
   }
 }
 

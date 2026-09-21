@@ -19,15 +19,16 @@
 
 .about-intro h1 {
   font-size: 36px;
-  margin: 14px 0 24px;
+  line-height: 1.2;
+  margin: 10px 0 16px 75px;
   max-width: 26ch;
 }
 
 .about-lead1 {
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 1.65;
   color: var(--gray);
-  margin-top: 8px;
+  margin: 0 0 10px ;
 }
 
 .about-lead2 {
@@ -79,6 +80,8 @@
   font-size: 14px;
   color: var(--gray);
   line-height: 1.6;
+  margin-right: 4px;
+
 }
 
 .focus-item-link {
