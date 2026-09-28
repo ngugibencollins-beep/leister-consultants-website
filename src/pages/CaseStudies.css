@@ -11,13 +11,19 @@
   isolation: isolate;
   overflow: hidden;
 }
+
+/* Compact band: overrides the tall shared .section padding for this intro only */
+.page-case-studies .case-intro {
+  padding: 36px 0 40px;
+}
+
 .container .section-kicker{
   text-align: center;
 }
 
 .case-intro h1 {
   font-size: 36px;
-  margin: 14px 0 20px;
+  margin: 8px 0 12px;
   max-width: 30ch;
   margin-left: auto;
   margin-right: auto;
@@ -28,6 +34,8 @@
   line-height: 1.7;
   color: var(--gray);
   max-width: 100ch;
+  margin-top: 0;
+  margin-bottom: 0;
   margin-left: auto;
   margin-right: auto;
 }
@@ -273,6 +281,7 @@
 
 @media (max-width: 560px) {
   .page-case-studies { padding-top: 64px; }
+  .page-case-studies .case-intro { padding: 28px 0 30px; }
   .case-intro h1 { font-size: 28px; }
   .case-stat-row { gap: 24px; }
 }

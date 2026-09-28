@@ -42,7 +42,7 @@ export default function Footer() {
 
       <div className="container footer-bottom">
         <span>© {year} Leister Consultants. All rights reserved.</span>
-        <a href="https://ryantech.co.ke/" target="_blank" rel="noreferrer" className="footer-credit">Created by RyanTech</a>
+        <a href="https://ryantech.co.ke/" target="_blank" rel="noreferrer" className="footer-credit">Designed by RyanTech</a>
       </div>
     </footer>
   );

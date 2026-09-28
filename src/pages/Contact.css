@@ -12,13 +12,18 @@
   overflow: hidden;
 }
 
+/* Compact band: overrides the tall shared .section padding for this intro only */
+.page-contact .contact-intro {
+  padding: 36px 0 40px;
+}
+
 .contact-intro .container {
   text-align: center;
 }
 
 .contact-intro h1 {
   font-size: 36px;
-  margin: 14px auto 20px;
+  margin: 8px auto 12px;
 }
 
 .contact-lead {
@@ -196,5 +201,6 @@
 
 @media (max-width: 560px) {
   .page-contact { padding-top: 64px; }
+  .page-contact .contact-intro { padding: 28px 0 30px; }
   .contact-intro h1 { font-size: 28px; }
 }

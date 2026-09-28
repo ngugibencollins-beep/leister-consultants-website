@@ -117,6 +117,10 @@
   margin-top: 10px;
 }
 
+.partner-grid .section-kicker {
+  padding-right: 32px;
+}
+
 .partner-role {
   color: var(--rust);
   font-size: 15px;

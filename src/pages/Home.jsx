@@ -66,9 +66,24 @@ const OUTCOMES = [
 ];
 
 const GALLERY = [
-  { label: 'Financial modelling session', image: SITE_IMAGES.financialLaptop },
-  { label: 'Project site visit, Tana River County', image: SITE_IMAGES.solarProject },
-  { label: 'Board & governance advisory meeting', image: SITE_IMAGES.advisoryMeeting },
+  {
+    label: 'Financial modelling session',
+    title: 'Feasibility to financial model',
+    description: 'Translating technical and market assumptions into investor-grade models and decision-ready outputs.',
+    image: SITE_IMAGES.financialLaptop,
+  },
+  {
+    label: 'Project site visit, Tana River County',
+    title: 'PPA and project finance support',
+    description: 'Structuring grid access, pricing, and financing terms that improve a project’s bankability.',
+    image: SITE_IMAGES.solarProject,
+  },
+  {
+    label: 'Board & governance advisory meeting',
+    title: 'Governance and compliance',
+    description: 'Building board frameworks, governance structures, and accountability systems for complex projects.',
+    image: SITE_IMAGES.advisoryMeeting,
+  },
 ];
 
 export default function Home() {
@@ -168,7 +183,13 @@ export default function Home() {
           <div className="gallery-grid">
             {GALLERY.map((item, i) => (
               <Reveal delay={i * 90} key={item.label} className="reveal-stretch">
-                <ImagePlaceholder label={item.label} image={item.image} ratio="4 / 3" />
+                <div className="gallery-card">
+                  <ImagePlaceholder label={item.label} image={item.image} ratio="4 / 3" />
+                  <div className="gallery-card-copy">
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -201,7 +222,7 @@ export default function Home() {
       <section className="section outcomes">
         <div className="container">
           <Reveal>
-            <div>
+            <div className="outcomes-header">
               <p className="section-kicker">What you get</p>
               <h2>A consultancy engagement, start to finish.</h2>
             </div>
